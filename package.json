@@ -1,8 +1,8 @@
 {
-  "name": "react-native-openai",
-  "private": true,
-  "version": "0.9.0",
-  "description": "A ChatGPT React Native wrapper to integrate it with your applications. It handles authentication, streamed responses, and contextual conversations. Fully serverless",
+  "name": "react-native-openai-supabase",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A ChatGPT React Native app to integrate it with Supabase Edge Function to call OpenAI APIs.",
   "main": "src/index",
   "module": "src/index",
   "types": "src/types/index.ts",
@@ -50,13 +50,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/hiroshitashir/react-native-openai",
+  "repository": "https://github.com/hiroshitashir/react-native-openai-supabase",
   "author": "hiroshitashir <hiroshitashir@gmail.com> (https://github.com/hiroshitashir)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hiroshitashir/react-native-openai/issues"
+    "url": "https://github.com/hiroshitashir/react-native-openai-supabase/issues"
   },
-  "homepage": "https://github.com/hiroshitashir/react-native-openai#readme",
+  "homepage": "https://github.com/hiroshitashir/react-native-openai-supabase#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
