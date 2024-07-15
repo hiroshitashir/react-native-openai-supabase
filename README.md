@@ -50,7 +50,7 @@ The app is only tested on Android Playstore.
 1. First, create entries in APP_TYPE and configs inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/app/config.ts).
 2. Then, copy a directory under [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
 3. In [apps/<app name>/app/index.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/app/index.tsx), pass your APP_TYPE.<your app name> to configureApp.
-4. In [apps/<app name>/app.config.js](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/app.config.js), adjust string 'ai-<your app name>-assistant' and 'com.aiassistant.<your app name>'.
+4. In [apps/<app name>/app.config.js](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/app.config.js), adjust string 'ai-your app name-assistant' and 'com.aiassistant.your app name'.
 
 ## Set Up RevenueCat
 - The app uses RevenueCat for in-app purchase. Set up an account by following [doc](https://www.revenuecat.com/docs/welcome/projects).
