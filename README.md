@@ -15,22 +15,22 @@ The app is only tested on Android Playstore.
 
 ## Set up Supabase Edge Function
 - Check [supabase docs](https://supabase.com/docs/guides/functions/quickstart) for setting up edge function at Supabase8
-- The definition of the edge function can be found at [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/packages/rn-openai-lib/supabase/functions/openai).
+- The definition of the edge function can be found at [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/packages/rn-openai-lib/supabase/functions/openai).
 - The edge function above uses Upstash's Redis for rate limiting api calls. Check [Upstash doc](https://upstash.com/docs/redis/overall/getstarted) for setting up.
-- Under [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/packages/rn-openai-lib/supabase/functions/openai), you have to create .env file and it should contain four environment variables below.
+- Under [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/packages/rn-openai-lib/supabase/functions/openai), you have to create .env file and it should contain four environment variables below.
   ```
   OPENAI_API_KEY=<Openai's api key>
   UPSTASH_REDIS_REST_URL="<Upstash's redit rest api url>"
   UPSTASH_REDIS_REST_TOKEN="<Upstash token for rest apis>"
   SUPABASE_SERVICE_KEY="<service key for supabase>"
   ```
-- Inside [packages/rn-openai-lib/lib/supabase.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/packages/rn-openai-lib/lib/supabase.ts), specify supabaseUrl and supabaseAnonKey. Check [doc](https://supabase.com/docs/reference/javascript/initializing) for details.
+- Inside [packages/rn-openai-lib/lib/supabase.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/lib/supabase.ts), specify supabaseUrl and supabaseAnonKey. Check [doc](https://supabase.com/docs/reference/javascript/initializing) for details.
   ```
   const supabaseUrl = '<supabase project url>';
   const supabaseAnonKey = '<supabase key>';
   ```
 
-- For configuring which edge function to call from this react native app, specifiy the edge function name inside createChatComplete method in [packages/rn-openai-lib/src/api/index.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/packages/rn-openai-lib/src/api/index.ts) below.
+- For configuring which edge function to call from this react native app, specifiy the edge function name inside createChatComplete method in [packages/rn-openai-lib/src/api/index.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/api/index.ts) below.
   ```
   export async function createChatComplete({
     messages,
@@ -45,18 +45,18 @@ The app is only tested on Android Playstore.
   ```
 
 ## Create App
-- App example can be found at [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/apps).
+- App example can be found at [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
 
-1. First, create entries in APP_TYPE and configs inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/packages/rn-openai-lib/src/app/config.ts).
-2. Then, copy a directory under [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/apps).
-3. In [apps/<app name>/app/index.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/apps/comedian/app/index.tsx), pass your APP_TYPE.<your app name> to configureApp.
-4. In [apps/<app name>/app.config.js](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/apps/comedian/app.config.js), adjust string 'ai-<your app name>-assistant' and 'com.aiassistant.<your app name>'.
+1. First, create entries in APP_TYPE and configs inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/app/config.ts).
+2. Then, copy a directory under [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
+3. In [apps/<app name>/app/index.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/app/index.tsx), pass your APP_TYPE.<your app name> to configureApp.
+4. In [apps/<app name>/app.config.js](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/app.config.js), adjust string 'ai-<your app name>-assistant' and 'com.aiassistant.<your app name>'.
 
 ## Set Up RevenueCat
 - The app uses RevenueCat for in-app purchase. Set up an account by following [doc](https://www.revenuecat.com/docs/welcome/projects).
 - Get its API key by following [doc](https://www.revenuecat.com/docs/welcome/authentication).
 - Follow [SDK Quickstart](https://www.revenuecat.com/docs/getting-started/quickstart) and set up store in Google Playstore.
-- Inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/w_open_ai_library/packages/rn-openai-lib/src/app/config.ts), replaace `your_revenuecat_google_api_key` with your RevenueCat api key.
+- Inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/app/config.ts), replaace `your_revenuecat_google_api_key` with your RevenueCat api key.
 
 ## Start App
 - From `apps/<your app name>` directory, run yarn to install libraries.
