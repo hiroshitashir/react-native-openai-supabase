@@ -1,0 +1,88 @@
+import OpenAI from 'openai';
+import 'xhr';
+import { ChatCompletionMessage } from 'openai/resources/chat/completions';
+
+import { Redis } from 'upstash_redis';
+import { Ratelimit } from 'ratelimit';
+import { createClient } from 'supabase-js';
+
+import * as twilio from 'twilio';
+
+const openai = new OpenAI({
+  apiKey: Deno.env.get('OPENAI_API_KEY'),
+});
+
+const accountSid = Deno.env.get('TWILIO_ACCOUNT_SID');
+const authToken = Deno.env.get('TWILIO_AUTH_TOKEN');
+const client = twilio(accountSid, authToken);
+
+Deno.serve(async (req) => {
+  /***
+   * Logic for rate limit
+   */
+  try {
+    /***
+     * Logic to call OpenAI api.
+     */
+    // const { query, appType } = await req.json();
+    // const queryParsed = typeof query === 'string' ? JSON.parse(query) : query;
+    // //console.log(`appType: ${appType}`);
+
+    // const chatCompletion = await openai.chat.completions.create({
+    //   messages: queryParsed,
+    //   model: 'gpt-3.5-turbo',
+    //   //model: 'gpt-4',
+    // });
+
+    // let msgs: [ChatCompletionMessage] = [queryParsed[queryParsed.length - 1]];
+    // //console.log(`req msg: `, queryParsed[queryParsed.length - 1]);
+    // //console.log(`resp msg: `, chatCompletion?.choices[0]?.message || '');
+    // if (chatCompletion?.choices[0]?.message) {
+    //   msgs.push(chatCompletion?.choices[0]?.message);
+    // }
+
+    // // Send the response back to the client
+    // return new Response(JSON.stringify(chatCompletion), {
+    //   headers: { 'Content-Type': 'application/json' },
+    //   status: 200,
+    // });
+
+    client.messages
+      .create({
+        body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+        from: '+15017122661',
+        to: '+13236157682',
+      })
+      .then((message) => console.log(message.sid));
+  } catch (error) {
+    console.error(`Error: `, error.message);
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 400,
+    });
+  }
+});
+
+/* 
+To invoke edge functions locally:
+
+  1. Run `supabase start` (see: https://supabase.com/docs/guides/functions/unit-test)
+  2. Run `supabase functions serve`
+  3. Make an HTTP request:
+
+  curl -i --location --request POST 'http://127.0.0.1:54321/functions/v1/openai' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0' \
+    --header 'Content-Type: application/json' \
+    --data "{\"query\":[{\"role\":\"system\",\"content\":\"You are a mindful companion and assistant, here to listen and support your emotional needs.\"}]}"
+
+
+To invoke locally:
+
+  1. Run `supabase start` (see: https://supabase.com/docs/reference/cli/supabase-start)
+  2. Make an HTTP request:
+
+  curl -i --location --request POST 'http://127.0.0.1:54321/functions/v1/openai' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0' \
+    --header 'Content-Type: application/json' \
+    --data '{"name":"Functions"}'
+
+*/

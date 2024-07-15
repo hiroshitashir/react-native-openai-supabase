@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "openai": "https://esm.sh/openai@4.22.0",
+    "xhr": "https://deno.land/x/xhr@0.3.0/mod.ts",
+    "upstash_redis": "https://deno.land/x/upstash_redis@v1.19.3/mod.ts",
+    "ratelimit": "https://cdn.skypack.dev/@upstash/ratelimit@0.4.4",
+    "supabase-js": "https://esm.sh/@supabase/supabase-js@2.7.1",
+    "twilio": "https://deno.land/x/twilio@0.1.1/Twilio.ts"
+  }
+}

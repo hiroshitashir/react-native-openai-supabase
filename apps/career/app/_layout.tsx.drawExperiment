@@ -1,0 +1,44 @@
+import React from 'react';
+import { Stack } from 'expo-router';
+
+// import { Text, View } from 'react-native';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import 'react-native-gesture-handler';
+
+// const Drawer = createDrawerNavigator();
+
+// function DrawerContent() {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Text>Drawer content</Text>
+//     </View>
+//   );
+// }
+
+// function HomeScreen() {
+//   return (
+//     <Stack>
+//       <Stack.Screen name="index" options={{ headerShown: false }} />
+//       <Stack.Screen name="forgot" options={{ title: '' }} />
+//       <Stack.Screen name="password" options={{ title: '' }} />
+//     </Stack>
+//   );
+// }
+
+// export default function RootLayout() {
+//   return (
+//     <Drawer.Navigator drawerContent={() => <DrawerContent />}>
+//       <Drawer.Screen name="index" component={HomeScreen} />
+//     </Drawer.Navigator>
+//   );
+// }
+
+export default function RootLayout() {
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="forgot" options={{ title: '' }} />
+      <Stack.Screen name="password" options={{ title: '' }} />
+    </Stack>
+  );
+}
