@@ -9,7 +9,7 @@ The app is only tested on Android Playstore.
 
 ## Sample App Demo
 
-![](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/ai-joke-demo.gif)
+<img src="https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/ai-joke-demo.gif" width="250" height="500"/>
 
 ## Setting up Supabase Edge Function
 - Check [supabase docs](https://supabase.com/docs/guides/functions/quickstart) for setting up edge function at Supabase.
