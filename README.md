@@ -1,5 +1,6 @@
 # react-native-openai-supabase
 
+## Create Your AI Chat Mobile App in 1 day
 This repo is a fork from [react-native-openai](https://github.com/candlefinance/react-native-openai). Several changes are made to the original repo below.
 
 - API calls to openai were directly called from react-native app in the original repo, which forced the app to include openai API key and it was unsecure. This forked version calls supabase edge function instead and it forwards api calls to API endpoints at Openai.
@@ -8,11 +9,12 @@ This repo is a fork from [react-native-openai](https://github.com/candlefinance/
 The app is only tested on Android Playstore.
 
 ## Sample App Demo
+<center>
+  <img src="https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/ai-joke-demo.gif" width="280" height="560"/>
+</center>
 
-<img src="https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/ai-joke-demo.gif" width="250" height="500"/>
-
-## Setting up Supabase Edge Function
-- Check [supabase docs](https://supabase.com/docs/guides/functions/quickstart) for setting up edge function at Supabase.
+## Set up Supabase Edge Function
+- Check [supabase docs](https://supabase.com/docs/guides/functions/quickstart) for setting up edge function at Supabase8
 - The definition of the edge function can be found at [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/packages/rn-openai-lib/supabase/functions/openai).
 - The edge function above uses Upstash's Redis for rate limiting api calls. Check [Upstash doc](https://upstash.com/docs/redis/overall/getstarted) for setting up.
 - Under [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/w_open_ai_library/packages/rn-openai-lib/supabase/functions/openai), you have to create .env file and it should contain four environment variables below.
@@ -97,6 +99,6 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 
 ## License
 
-MIT © [Raul Gomez Acuna](https://raulgomez.io/)
+MIT
 
 If you found this project interesting, please consider following me on [twitter](https://twitter.com/hiroshitashir)
