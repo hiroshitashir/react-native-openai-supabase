@@ -13,6 +13,10 @@ The app is only tested on Android Playstore.
   <img src="https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/apps/comedian/ai-joke-demo.gif" width="280" height="560"/>
 </center>
 
+## Clone this repo
+
+```$ git clone https://github.com/hiroshitashir/react-native-openai-supabase.git```
+
 ## Set up Supabase Edge Function
 - Check [supabase docs](https://supabase.com/docs/guides/functions/quickstart) for setting up edge function at Supabase8
 - The definition of the edge function can be found at [packages/rn-openai-lib/supabase/functions/openai](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/packages/rn-openai-lib/supabase/functions/openai).
@@ -45,7 +49,7 @@ The app is only tested on Android Playstore.
   ```
 
 ## Create App
-- App example can be found at [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
+- App examples can be found at [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
 
 1. First, create entries in APP_TYPE and configs inside [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/app/config.ts).
 2. Then, copy a directory under [/apps](https://github.com/hiroshitashir/react-native-openai-supabase/tree/main/apps).
