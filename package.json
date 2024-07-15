@@ -1,6 +1,6 @@
 {
   "name": "react-native-openai-supabase",
-  "private": false,
+  "private": true,
   "version": "1.0.0",
   "description": "A ChatGPT React Native app to integrate it with Supabase Edge Function to call OpenAI APIs.",
   "main": "src/index",
