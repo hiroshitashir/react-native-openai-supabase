@@ -5,6 +5,7 @@ This repo is a fork from [react-native-openai](https://github.com/candlefinance/
 
 - API calls to openai were directly called from react-native app in the original repo, which forced the app to include openai API key and it was unsecure. This forked version calls supabase edge function instead and it forwards api calls to API endpoints at Openai.
 - Login logic in UI was changed to call Supabase auth.
+- You can create your custom prompt and instruct AI how it should behave at initial_system_prompt in [packages/rn-openai-lib/src/app/config.ts](https://github.com/hiroshitashir/react-native-openai-supabase/blob/main/packages/rn-openai-lib/src/app/config.ts#L25).
 
 The app is only tested on Android Playstore.
 
